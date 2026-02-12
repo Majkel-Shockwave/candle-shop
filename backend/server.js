@@ -1,5 +1,6 @@
 //1. Importy
 const express = require('express');
+const cors = require('cors');
 const { Pool } = require('pg');
 
 //2. Tworzymy aplikację express (wynik funkcji express to obiekt z wbudowanymi metodami własnymi)

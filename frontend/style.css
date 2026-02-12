@@ -1,0 +1,269 @@
+/* ===========================
+   GLOBAL RESET + SYSTEM
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+body {
+    background: #fff;
+    color: #000;
+}
+/* GLOBALNE ODSTĘPY TEKSTU */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem; /* odstęp pod nagłówkiem */
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.9rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.1rem; }
+
+h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+
+p {
+    margin-bottom: 0.3rem; /* odstęp między paragrafami */
+}
+
+
+/* ===========================
+   KOLORY
+=========================== */
+:root {
+    --c-light:  #FFFFFF;
+    --c-gray:   #C7B5BD;
+    --c-purple: #8A6273;
+    --c-dark:   #6A3E4F;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ===========================
+   NAV – efekt mushi
+=========================== */
+.nav {
+    position: relative;
+    top: 0;
+    padding: 1rem 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 1rem 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+/* ===========================
+   SOCIAL MENU – obok "Strona główna"
+   rozwijane W LEWO
+=========================== */
+
+.social-menu {
+    position: relative; /* potrzebne do animacji */
+    margin-right: 1rem; /* odstęp od menu */
+}
+
+.social-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* ukryte ikony – chowają się w PRAWO */
+.social-menu li:not(.toggle) {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+    transition: 0.3s ease;
+}
+
+/* po otwarciu – wysuwają się w LEWO */
+.social-menu.open li:not(.toggle) {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-10px);
+}
+
+/* ikony */
+.social-menu ul img {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.social-menu li.toggle img {
+    width: 2.1rem;
+    height: 2.1rem;
+}
+
+
+/* ===========================
+   MENU (NAV)
+=========================== */
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu li a {
+    padding: 0.5rem 1rem;
+    color: var(--c-dark);
+    font-size: 1.125rem;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.menu li a:hover {
+    color: var(--c-light);
+    background: var(--c-dark);
+}
+
+.container {
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+/* ===========================
+   SLIDER
+=========================== */
+.slider {
+    position: relative;
+    height: calc(100vh - 10rem);
+
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+}
+
+/* PRZYCISKI – KOŁA */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 3.2rem;
+    height: 3.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.slider-btn.prev {
+    left: 1rem;
+}
+
+.slider-btn.next {
+    right: 1rem;
+}
+
+/* ===========================
+   RESPONSYWNOŚĆ
+=========================== */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 2rem;
+    }
+
+    .slider {
+        margin: 1rem 2rem 4rem 2rem;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .slider {
+        margin: 1rem;
+        height: 50vh;
+    }
+}
+
+.occasion-cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.occasion-card-1, 
+.occasion-card-2, 
+.occasion-card-3, 
+.occasion-card-4 { 
+    height: 168px; 
+    background: #ddd; 
+    border-radius: 10px;
+}
+
+.top-products-cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+}
+
+[class^="top-card"] {
+    height: 370px;
+    background: #ddd;
+    border-radius: 10px;
+}
