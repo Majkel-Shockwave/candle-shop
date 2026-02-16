@@ -158,8 +158,9 @@ header {
    SLIDER
 =========================== */
 .slider {
+    margin-bottom: 2rem;
     position: relative;
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 7rem);
 
     background: #eee;
     border-radius: 20px;
@@ -240,7 +241,8 @@ header {
 }
 
 .occasion-cards {
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
@@ -255,15 +257,80 @@ header {
     border-radius: 10px;
 }
 
-.top-products-cards {
-    margin-top: 2rem;
-    display: grid;
+.top-products-cards,
+.category-list {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 1rem;
 }
 
-[class^="top-card"] {
-    height: 370px;
+[class^="top-card"],
+[class^="category-name"] {
+    height: 490px;
     background: #ddd;
     border-radius: 10px;
 }
+
+.footer-content {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.footer-content > div {
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-content ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content li {
+    margin-bottom: 0.5rem;
+}
+
+.product-small-card {
+    height: 490px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-small-card h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 0.7rem;
+    margin-bottom: 0.3rem;
+}
+
+.product-small-card p {
+    text-align: center;
+    font-size: 1.3rem;
+}
+

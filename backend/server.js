@@ -5,6 +5,7 @@ const { Pool } = require('pg');
 
 //2. Tworzymy aplikację express (wynik funkcji express to obiekt z wbudowanymi metodami własnymi)
 const app = express();
+app.use(cors());
 
 //3. Middleware do obsługi json
 app.use(express.json());
@@ -26,11 +27,15 @@ app.get('/', (req, res) => {
 //6. Endpoint z bazy danych
 app.get('/produkty', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM products');
+        const result = await pool.query(`
+            SELECT * FROM products
+            ORDER BY price DESC
+            LIMIT 8
+            `);
         res.json(result.rows);
     } catch (err) {
-        console.error(err);
-        res.status(500).send('błąd serwera');
+        console.log(err);
+        res.status(500).send("Błąd servera");
     }
 });
 
