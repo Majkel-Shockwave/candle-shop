@@ -11,19 +11,23 @@ html {
     font-size: 16px;
 }
 
+body {
+    background: #fff;
+    color: #000;
+}
+
 .main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-body {
-    background: #fff;
-    color: #000;
-}
-/* GLOBALNE ODSTĘPY TEKSTU */
+/* ===========================
+   TYPOGRAFIA
+=========================== */
 h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem; /* odstęp pod nagłówkiem */
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 h1 { font-size: 3rem; }
@@ -33,12 +37,9 @@ h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1.1rem; }
 
-h1, h2, h3, h4, h5, h6 { margin-top: 0; }
-
 p {
-    margin-bottom: 0.3rem; /* odstęp między paragrafami */
+    margin-bottom: 0.3rem;
 }
-
 
 /* ===========================
    KOLORY
@@ -72,8 +73,6 @@ header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    padding: 1rem 0;
-
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -81,13 +80,11 @@ header {
 }
 
 /* ===========================
-   SOCIAL MENU – obok "Strona główna"
-   rozwijane W LEWO
+   SOCIAL MENU
 =========================== */
-
 .social-menu {
-    position: relative; /* potrzebne do animacji */
-    margin-right: 1rem; /* odstęp od menu */
+    position: relative;
+    margin-right: 1rem;
 }
 
 .social-menu ul {
@@ -97,7 +94,6 @@ header {
     gap: 0.8rem;
 }
 
-/* ukryte ikony – chowają się w PRAWO */
 .social-menu li:not(.toggle) {
     opacity: 0;
     pointer-events: none;
@@ -105,14 +101,12 @@ header {
     transition: 0.3s ease;
 }
 
-/* po otwarciu – wysuwają się w LEWO */
 .social-menu.open li:not(.toggle) {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(-10px);
 }
 
-/* ikony */
 .social-menu ul img {
     width: 2.4rem;
     height: 2.4rem;
@@ -123,9 +117,8 @@ header {
     height: 2.1rem;
 }
 
-
 /* ===========================
-   MENU (NAV)
+   MENU
 =========================== */
 .menu {
     list-style: none;
@@ -172,11 +165,19 @@ header {
 }
 
 .slides {
+    display: flex;
     width: 100%;
     height: 100%;
+    transition: transform 0.4s ease;
 }
 
-/* PRZYCISKI – KOŁA */
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
 .slider-btn {
     position: absolute;
     top: 50%;
@@ -207,39 +208,12 @@ header {
     transform: translateY(-50%) scale(1.08);
 }
 
-.slider-btn.prev {
-    left: 1rem;
-}
-
-.slider-btn.next {
-    right: 1rem;
-}
+.slider-btn.prev { left: 1rem; }
+.slider-btn.next { right: 1rem; }
 
 /* ===========================
-   RESPONSYWNOŚĆ
+   OKAZJE
 =========================== */
-@media (max-width: 768px) {
-    header {
-        padding: 1rem 2rem;
-    }
-
-    .slider {
-        margin: 1rem 2rem 4rem 2rem;
-        height: 60vh;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu {
-        flex-direction: column;
-    }
-
-    .slider {
-        margin: 1rem;
-        height: 50vh;
-    }
-}
-
 .occasion-cards {
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -248,22 +222,26 @@ header {
     gap: 1rem;
 }
 
-.occasion-card-1, 
-.occasion-card-2, 
-.occasion-card-3, 
-.occasion-card-4 { 
-    height: 168px; 
-    background: #ddd; 
+.occasion-card-1,
+.occasion-card-2,
+.occasion-card-3,
+.occasion-card-4 {
+    height: 168px;
+    background: #ddd;
     border-radius: 10px;
 }
 
+/* ===========================
+   TOP PRODUCTS + CATEGORY LIST
+=========================== */
 .top-products-cards,
 .category-list {
     margin-top: 1rem;
     margin-bottom: 2rem;
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* DESKTOP */
     gap: 1rem;
+    cursor: pointer;
 }
 
 [class^="top-card"],
@@ -273,6 +251,9 @@ header {
     border-radius: 10px;
 }
 
+/* ===========================
+   FOOTER
+=========================== */
 .footer-content {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -291,7 +272,6 @@ header {
 }
 
 .footer-content ul {
-    text-align: center;
     list-style: none;
     padding: 0;
 }
@@ -300,6 +280,9 @@ header {
     margin-bottom: 0.5rem;
 }
 
+/* ===========================
+   PRODUCT CARD
+=========================== */
 .product-small-card {
     height: 490px;
     overflow: hidden;
@@ -313,7 +296,6 @@ header {
     width: 100%;
     height: 85%;
     overflow: hidden;
-    background: transparent;
 }
 
 .product-image img {
@@ -334,3 +316,147 @@ header {
     font-size: 1.3rem;
 }
 
+/* ===========================
+   MEDIA QUERIES — PRODUKTY
+=========================== */
+
+/* TABLET – 2 kolumny */
+@media (max-width: 1024px) {
+    .top-products-cards,
+    .category-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE – 1 kolumna */
+@media (max-width: 600px) {
+    .top-products-cards,
+    .category-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   STRONA PRODUKTU — SPÓJNA Z TWOIM STYLEM
+=========================== */
+
+.product-page {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* GÓRA: ZDJĘCIE + INFO */
+.product-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* GALERIA PRODUKTU */
+.product-gallery {
+    width: 100%;
+    height: 550px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.product-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFORMACJE O PRODUKCIE */
+.product-info h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #000; /* CZARNY — tak jak chciałeś */
+}
+
+.product-info p {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    color: #000; /* zachowujemy czarny tekst */
+}
+
+.product-info .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #000; /* też czarne */
+}
+
+/* INPUT ILOŚCI */
+.product-info input[type="number"] {
+    width: 100px;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    margin-bottom: 1rem;
+}
+
+/* PRZYCISK — SPÓJNY Z TWOIM STYLEM */
+.add-to-cart {
+    color: var(--c-dark);
+    padding: 0.8rem 1.4rem;
+    font-size: 1.2rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.add-to-cart:hover {
+    color: var(--c-light);
+    background: var(--c-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+/* DŁUGI OPIS */
+.product-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: #000;
+}
+
+/* PODOBNE PRODUKTY */
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 1024px) {
+    .product-top {
+        grid-template-columns: 1fr;
+    }
+
+    .product-gallery {
+        height: 400px;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}

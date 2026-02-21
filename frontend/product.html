@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Produkt</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER (pełna kopia z index.html) -->
+        <header class="header">
+            <nav class="nav">
+
+                <div class="social-menu">           
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="icons/tiktok.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="icons/instagram.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="icons/facebook.svg">
+                            </a>
+                        </li>
+                        <li class="toggle">
+                            <a href="#">
+                                <img src="icons/share.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="#">Produkty</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="#">Koszyk</a></li>
+                </ul>
+
+            </nav>
+        </header>
+
+        <!-- STRONA PRODUKTU -->
+        <main class="product-page">
+
+            <div class="product-top">
+
+                <!-- GALERIA PRODUKTU -->
+                <div class="product-gallery">
+                    <img class="product-image" src="" alt="zdjęcie produktu">
+                </div>
+
+                <!-- INFORMACJE O PRODUKCIE -->
+                <div class="product-info">
+                    <h1 class="product-name"></h1>
+                    <p class="price"></p>
+                    <p class="short-desc"></p>
+                    <p class="category"></p>
+                    <p class="scent"></p>
+                    <p class="model"></p>
+
+                    <label>Ilość:</label>
+                    <input type="number" min="1" value="1">
+
+                    <button class="add-to-cart">Dodaj do koszyka</button>
+                </div>
+
+            </div>
+
+            <!-- DŁUGI OPIS -->
+            <div class="product-description"></div>
+
+            <!-- PODOBNE PRODUKTY -->
+            <div class="product-related">
+                <h2>Podobne produkty</h2>
+                <div class="related-grid"></div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER (pełna kopia z index.html) -->
+        <footer class="footer-content">
+
+            <div class="footer-section-1">
+                <h3>Sklep</h3>
+                <ul>
+                    <li>Kontakt</li>
+                    <li>Blog</li>
+                    <li>LLMs</li>
+                </ul>
+            </div>
+
+            <div class="footer-section-2">
+                <h3>Produkty</h3>
+                <ul>
+                    <li>Kategorie</li>
+                    <li>Informacje</li>
+                    <li>Nowości</li>
+                </ul>
+            </div>
+
+            <div class="footer-section-3">
+                <h3>Obsługa klienta</h3>
+                <ul>
+                    <li>Dostawy</li>
+                    <li>Zwroty i reklamacje</li>
+                    <li>Płatności</li>
+                </ul>
+            </div>
+
+            <div class="footer-section-4">
+                <h3>Pomoc</h3>
+                <ul>
+                    <li>Regulamin</li>
+                    <li>Polityka prywatności</li>
+                    <li>Polityka ciasteczek</li>
+                </ul>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <script src="product.js"></script>
+</body>
+</html>
