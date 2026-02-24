@@ -35,6 +35,7 @@ async function loadTopProducts() {
             </div>
             <h3>${prod.name}</h3>
             <p>${prod.price} zł</p>
+            <button class="mini-add-to-cart">Dodaj do koszyka</button>
             `;
 
             card.addEventListener("click", () => {

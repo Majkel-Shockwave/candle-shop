@@ -66,3 +66,31 @@ app.get('/produkty/:id', async (req, res) => {
         res.status(500).send("Błąd serwera");
     }
 });
+
+app.get('/produkty/podobne/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const productResult = await pool.query(
+            'SELECT * FROM products WHERE id = $1',
+            [id]
+        );
+
+        if (productResult.rows.length === 0) {
+            return res.status(404).send("Nie znaleziono produktu");
+        }
+
+        const category = productResult.rows[0].category_id;
+
+        const relatedResult = await pool.query(
+            `SELECT * FROM products WHERE category_id = $1 AND id != $2
+            LIMIT 8`,
+            [category, id]
+        );
+
+        res.json(relatedResult.rows);
+
+    }catch (err) {
+        res.status(500).json({ error: "Błąd servera" });
+    }
+});

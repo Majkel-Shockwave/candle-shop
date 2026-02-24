@@ -222,14 +222,23 @@ header {
     gap: 1rem;
 }
 
-.occasion-card-1,
-.occasion-card-2,
-.occasion-card-3,
-.occasion-card-4 {
+.occasion-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid;
     height: 168px;
-    background: #ddd;
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
 }
+
+.occasion-card:hover {
+    border-color: var(--c-dark);
+}
+
+
 
 /* ===========================
    TOP PRODUCTS + CATEGORY LIST
@@ -241,14 +250,19 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* DESKTOP */
     gap: 1rem;
-    cursor: pointer;
 }
 
 [class^="top-card"],
 [class^="category-name"] {
     height: 490px;
     background: #ddd;
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 10px;
+    cursor: pointer;
+}
+
+[class^="category-name"]:hover {
+    border-color: var(--c-dark);
 }
 
 /* ===========================
@@ -284,17 +298,28 @@ header {
    PRODUCT CARD
 =========================== */
 .product-small-card {
+    display: flex;
+    flex-direction: column;
     height: 490px;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.15);
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.product-small-card:hover {
+    border-color: var(--c-dark);
+}
+
+.product-small-card:hover h3 {
+    color: var(--c-dark);
 }
 
 .product-image {
     width: 100%;
-    height: 85%;
+    height: 75%;
     overflow: hidden;
 }
 
@@ -315,13 +340,32 @@ header {
     text-align: center;
     font-size: 1.3rem;
 }
+.mini-add-to-cart {
+    margin: 0.5rem auto 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    background: #fff;
+    color: var(--c-dark);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.mini-add-to-cart:hover {
+    background: var(--c-dark);
+    color: var(--c-light);
+    transform: translateY(-2px);
+}
+
 
 /* ===========================
    MEDIA QUERIES — PRODUKTY
 =========================== */
 
 /* TABLET – 2 kolumny */
-@media (max-width: 1024px) {
+@media (max-width: 1450px) {
     .top-products-cards,
     .category-list {
         grid-template-columns: repeat(2, 1fr);
@@ -329,7 +373,7 @@ header {
 }
 
 /* MOBILE – 1 kolumna */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .top-products-cards,
     .category-list {
         grid-template-columns: 1fr;
@@ -441,7 +485,7 @@ header {
 }
 
 /* RESPONSYWNOŚĆ */
-@media (max-width: 1024px) {
+@media (max-width: 1450px) {
     .product-top {
         grid-template-columns: 1fr;
     }
@@ -455,7 +499,7 @@ header {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .related-grid {
         grid-template-columns: 1fr;
     }
