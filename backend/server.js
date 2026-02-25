@@ -94,3 +94,22 @@ app.get('/produkty/podobne/:id', async (req, res) => {
         res.status(500).json({ error: "Błąd servera" });
     }
 });
+
+app.get('/wszystkie/produkty', async (req, res) => {
+
+    try {
+        const productAllResult = await pool.query(
+            `SELECT * FROM products
+            ORDER BY price ASC`,
+        );
+
+        if (productAllResult.rows.length === 0) {
+            return res.status(404).send("Nie znaleziono produktów");
+        }
+
+        res.json(productAllResult.rows);
+
+    } catch (err) {
+        res.status(500).json({ error: "Błąd servera" });
+    }
+});

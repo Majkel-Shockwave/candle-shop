@@ -222,23 +222,47 @@ header {
     gap: 1rem;
 }
 
+.icon {
+    width: 100%;
+    height: 90%; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
 .occasion-card {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    border: 1px solid;
-    height: 168px;
+    height: 320px;
+    gap: 10px;
     border: 1px solid rgba(0,0,0,0.15);
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     cursor: pointer;
+    overflow: hidden;
 }
+
+
 
 .occasion-card:hover {
     border-color: var(--c-dark);
 }
 
-
+.occasion-card:hover h3 {
+    color: var(--c-dark);
+}
 
 /* ===========================
    TOP PRODUCTS + CATEGORY LIST
@@ -252,17 +276,12 @@ header {
     gap: 1rem;
 }
 
-[class^="top-card"],
-[class^="category-name"] {
+[class^="top-card"] {
     height: 490px;
     background: #ddd;
     border: 1px solid rgba(0,0,0,0.15);
     border-radius: 10px;
     cursor: pointer;
-}
-
-[class^="category-name"]:hover {
-    border-color: var(--c-dark);
 }
 
 /* ===========================
@@ -501,6 +520,26 @@ header {
 
 @media (max-width: 900px) {
     .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.products {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1450px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .products {
         grid-template-columns: 1fr;
     }
 }
