@@ -45,7 +45,7 @@
                         <li><a href="index.html">Strona główna</a></li>
                         <li><a href="categories.html">Kategorie</a></li>
                         <li><a href="#">Kontakt</a></li>
-                        <li><a href="#">Koszyk</a></li>
+                        <li><a href="koszyk.html">Koszyk</a></li>
                     </ul>
                 </nav>
 
@@ -112,11 +112,32 @@
                     <h2>Kategorie</h2>
                     <p>Przeglądaj według kategori produktów</p>
 
-                    <div class="category-list">
-                        <div class="category-name-1"></div>
-                        <div class="category-name-2"></div>
-                        <div class="category-name-3"></div>
-                        <div class="category-name-4"></div>
+                    <div class="container-category">
+
+                        <div class="category-zapachowe" data-category="Świeczki zapachowe" data-id="1">
+                            <a href="categories.html?category=1&name=Świeczki%20zapachowe">
+                                <h3>Świeczki zapachowe</h3>
+                            </a>
+                        </div>
+
+                        <div class="category-dekoracyjne" data-category="Świeczki dekoracyjne" data-id="3">
+                            <a href="categories.html?category=3&name=Świeczki%20dekoracyjne">
+                                <h3>Świeczki dekoracyjne</h3>
+                            </a>
+                        </div>
+
+                        <div class="category-sojowe" data-category="Świeczki sojowe" data-id="2">
+                            <a href="categories.html?category=2&name=Świeczki%20sojowe">
+                                <h3>Świeczki sojowe</h3>
+                            </a>
+                        </div>
+
+                        <div class="category-woski" data-category="Woski" data-id="4">
+                            <a href="categories.html?category=4&name=Woski">
+                                <h3>Woski</h3>
+                            </a>
+                        </div>
+                   
                     </div>
 
                 </section>
@@ -163,6 +184,7 @@
 
             </footer>
 
+            <script src="cartEngine.js"></script>
             <script src="script.js"></script>
             <script src="social-menu.js"></script>
         </div>

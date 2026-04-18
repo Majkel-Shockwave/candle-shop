@@ -503,6 +503,172 @@ header {
     gap: 1rem;
 }
 
+.container-category {
+  height: 100vh;
+  margin-top: 2rem;
+  margin-bottom: 1rem ;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 0.5fr;
+  gap: 15px 10px;
+  grid-template-areas:
+    "zapachowe dekoracyjne"
+    "sojowe woski";
+}
+
+.container-category a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+/* przypisanie obszarów do elementów */
+.category-zapachowe   { grid-area: zapachowe; }
+.category-dekoracyjne { grid-area: dekoracyjne; }
+.category-sojowe      { grid-area: sojowe; }
+.category-woski       { grid-area: woski; }
+
+.category-zapachowe,
+.category-dekoracyjne,
+.category-sojowe,
+.category-woski {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-zapachowe:hover,
+.category-dekoracyjne:hover,
+.category-sojowe:hover,
+.category-woski:hover {
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+.category-zapachowe {
+    background-color: #CDECCB ;
+}
+
+.category-dekoracyjne {
+    background-color: #FFF4B8 ;
+}
+
+.category-sojowe {
+    background-color: #CFE8FF;
+}
+
+.category-woski {
+    background-color: #FAD4E8 ;
+}
+
+.allproduct-categories h2 {
+    margin-bottom: 2rem;
+}
+
+.order-details {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.details {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    height: 120px;
+    width: 120px;
+}
+
+.price-item {
+    margin-left: auto;
+}
+
+.separator {
+    margin-block: 0;
+    margin: 0 auto;
+    width: 98%;
+    background: #ccc;
+}
+
+.quantity {
+    display: flex;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.name-description h2 {
+    font-size: 2rem;
+}
+
+.price-item-all {
+    display: block;
+    margin-left: auto;
+}
+
+.quantity .quantity-btn-add,
+.quantity .quantity-btn-subtract {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.quantity .quantity-btn-add:hover,
+.quantity .quantity-btn-subtract:hover {
+    color: var(--c-light);
+    background: var(--c-dark);
+}
+
+
+.quantity .quantity-btn-remove {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-image: url("icons/remove.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%; 
+    cursor: pointer;
+    transition: 0.25s ease;
+    margin-right: 20px;
+}
+
+.quantity .quantity-btn-remove:hover {
+    transform: scale(0.8);
+}
+
+.quantity .quantity-view {
+    display: flex;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
 /* RESPONSYWNOŚĆ */
 @media (max-width: 1450px) {
     .product-top {
@@ -543,3 +709,32 @@ header {
         grid-template-columns: 1fr;
     }
 }
+
+/* 1450px – możesz tu nic nie zmieniać, albo zostawić tak: */
+@media (max-width: 1450px) {
+  .container-category {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+    .container-category {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .category-zapachowe,
+    .category-dekoracyjne,
+    .category-sojowe,
+    .category-woski {
+        width: 100%;
+    }
+}
+
+
+
+
+
+

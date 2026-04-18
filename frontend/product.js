@@ -72,6 +72,12 @@ function renderRelated(products) {
             <button class="mini-add-to-cart">Dodaj do koszyka</button>
             `;
 
+            const btnAddToCard = card.querySelector(".mini-add-to-cart");
+            btnAddToCard.addEventListener("click", (e) => {
+                e.stopPropagation();
+                addToCart(prod);
+            });
+
         card.addEventListener("click", () => {
             window.location.href = `product.html?id=${prod.id}`;
         });
