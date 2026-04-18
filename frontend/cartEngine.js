@@ -1,4 +1,7 @@
-function addToCart(prod) {
+async function addToCartById(id) {
+    const res = await fetch(`http://localhost:3000/produkty/${id}`);
+    const prod = await res.json();
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const existing = cart.find(item => item.id === prod.id);
@@ -11,9 +14,10 @@ function addToCart(prod) {
             name: prod.name,
             price: prod.price,
             image: prod.image,
-            quantity: 1
+            quantity: 1,
+            short_description: prod.short_description
         });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-}
+};

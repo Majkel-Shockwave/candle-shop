@@ -1,5 +1,3 @@
-console.log("addToCart:", typeof addToCart);
-
 const params = new URLSearchParams(window.location.search);
 const categoryIdFromUrl = params.get("category");
 const categoryNameFromUrl = params.get("name");
@@ -30,11 +28,13 @@ async function start() {
                 <button class="mini-add-to-cart">Dodaj do koszyka</button>
             `;
 
-            const btn = card.querySelector(".mini-add-to-cart");
-            btn.addEventListener("click", (e) => {
+            const btnAddToCard = card.querySelector(".mini-add-to-cart");
+
+            btnAddToCard.addEventListener("click", (e) => {
             e.stopPropagation();
-            addToCart(prod);
-});
+            addToCartById(prod.id);
+            });
+
 
 
             card.addEventListener('click', () =>{
@@ -72,9 +72,10 @@ async function pobierzProdukty() {
             `;
 
             const btnAddToCard = card.querySelector(".mini-add-to-cart");
+
             btnAddToCard.addEventListener("click", (e) => {
-                e.stopPropagation();
-                addToCart(prod);
+            e.stopPropagation();
+            addToCartById(prod.id);
             });
 
             card.addEventListener("click", () => {
@@ -105,7 +106,7 @@ document.querySelectorAll('.container-category > div').forEach(box => {
         const categoryName = box.dataset.category;
         const categoryId = Number(box.dataset.id);
         document.querySelector(".products").scrollIntoView({
-            behavior: "smooth"
+            behavior: "smooth" 
         });
 
         document.querySelector('.allproduct-categories h2').textContent = categoryName;
@@ -130,9 +131,10 @@ document.querySelectorAll('.container-category > div').forEach(box => {
             `;
 
             const btnAddToCard = card.querySelector(".mini-add-to-cart");
+
             btnAddToCard.addEventListener("click", (e) => {
-                e.stopPropagation();
-                addToCart(prod);
+            e.stopPropagation();
+            addToCartById(prod.id);
             });
 
             card.addEventListener("click", () => {

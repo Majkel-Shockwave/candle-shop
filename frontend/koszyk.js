@@ -5,6 +5,8 @@ const container = document.querySelector(".cart-items");
 cart.forEach(prod => {
     const item = document.createElement("div");
     item.classList.add("order-details");
+    item.setAttribute("data-id", prod.id);
+
 
     item.innerHTML = `
         <div class="details">
@@ -13,7 +15,7 @@ cart.forEach(prod => {
             </a>
             <div class="name-description">
                 <h2>${prod.name}</h2>
-                <p>Opis produktu</p>
+                <p>${prod.short_description}</p>
             </div>
             <div class="price-item">
                 <p class="single-price">${prod.price} zł</p>
@@ -54,8 +56,16 @@ document.querySelectorAll(".order-details").forEach(item => {
     };
 
     btnRemove.addEventListener("click", () => {
-        item.remove();
-    });
+    const id = Number(item.getAttribute("data-id"));
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updated = cart.filter(p => p.id !== id);
+
+    localStorage.setItem("cart", JSON.stringify(updated));
+
+    item.remove();
+});
+
 
     btnSub.addEventListener("click", () => {
         if (quantity > 1) {

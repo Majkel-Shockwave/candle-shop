@@ -27,10 +27,12 @@ async function loadTopProducts() {
             `;
 
             const btnAddToCard = card.querySelector(".mini-add-to-cart");
+
             btnAddToCard.addEventListener("click", (e) => {
-                e.stopPropagation();
-                addToCart(prod);
+            e.stopPropagation();
+            addToCartById(prod.id);
             });
+
 
             card.addEventListener("click", () => {
                 window.location.href = `product.html?id=${prod.id}`;
